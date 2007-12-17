@@ -10,7 +10,6 @@ License:  GPL
 Group:  System/Servers
 Source:  http://fredrik.rambris.com/files/%name-%version.tar.bz2
 URL:  http://fredrik.rambris.com/sleezeball/
-BuildRoot: %{_tmppath}/%{name}-buildroot
 Requires:  squid
 
 %description
