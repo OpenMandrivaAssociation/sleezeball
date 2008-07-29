@@ -1,6 +1,6 @@
 %define name sleezeball
 %define version 0.6
-%define release %mkrel 4
+%define release %mkrel 6
 
 Summary:  A redirector for Squid2 that zapps banners
 Name:  %name
