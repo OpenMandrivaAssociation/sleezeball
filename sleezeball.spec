@@ -1,12 +1,12 @@
 %define name sleezeball
 %define version 0.6
-%define release %mkrel 7
+%define release %mkrel 8
 
 Summary:  A redirector for Squid2 that zapps banners
 Name:  %name
 Version: %version
 Release: %release
-License:  GPL
+License:  GPLv2+
 Group:  System/Servers
 Source:  http://fredrik.rambris.com/files/%name-%version.tar.bz2
 URL:  http://fredrik.rambris.com/sleezeball/
