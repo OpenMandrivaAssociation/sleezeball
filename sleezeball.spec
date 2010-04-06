@@ -1,6 +1,6 @@
 %define name sleezeball
 %define version 0.6
-%define release %mkrel 8
+%define release %mkrel 9
 
 Summary:  A redirector for Squid2 that zapps banners
 Name:  %name
@@ -36,16 +36,20 @@ mkdir -p $RPM_BUILD_ROOT/%{_sbindir}
 mkdir -p $RPM_BUILD_ROOT/%{_libdir}/squid/icons
 make install
 
+mkdir -p $RPM_BUILD_ROOT/etc/squid/
+echo >$RPM_BUILD_ROOT/etc/squid/sleezeball.conf <<EOF
+# The SleezeBall Configuration
+
+# The URL to redirect banners to
+REDIRECT_URL=http://${HOSTNAME}:3128/squid-internal-static/icons/banner.gif
+
+# Uncomment this to enable log
+# LOG=/var/log/squid/sleezeball.log
+EOF
+
+
 %post
 if ! grep -q "banner" /etc/squid/mime.conf ; then echo 'internal-banner	-	banner.gif	-	image' >>/etc/squid/mime.conf ; fi
-
-echo "# The SleezeBall Configuration" >/etc/squid/sleezeball.conf
-echo >>/etc/squid/sleezeball.conf
-echo "# The URL to redirect banners to" >>/etc/squid/sleezeball.conf
-echo "REDIRECT_URL=http://${HOSTNAME}:3128/squid-internal-static/icons/banner.gif" >>/etc/squid/sleezeball.conf
-echo >>/etc/squid/sleezeball.conf
-echo "# Uncomment this to enable log" >>/etc/squid/sleezeball.conf
-echo "# LOG=/var/log/squid/sleezeball.log" >>/etc/squid/sleezeball.conf
 
 if [ -e /etc/squid/sleezeball.definitions ] ; then
 cp -f /etc/squid/sleezeball.definitions /etc/squid/sleezeball.definitions.old
@@ -64,6 +68,7 @@ if [ -d $RPM_BUILD_ROOT ]; then rm -r $RPM_BUILD_ROOT; fi
 %files
 %defattr(-, root, root, 0755)
 %doc README COPYING ChangeLog sleezeball.definitions
+%config(noreplace) /etc/squid/sleezeball.conf
 %{_libdir}/squid/sleezeball
 %{_libdir}/squid/icons/banner.gif
 %{_sbindir}/reloadszb
