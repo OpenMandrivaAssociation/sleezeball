@@ -1,6 +1,6 @@
 %define name sleezeball
 %define version 0.6
-%define release %mkrel 9
+%define release %mkrel 10
 
 Summary:  A redirector for Squid2 that zapps banners
 Name:  %name
@@ -60,7 +60,7 @@ if [ -e /etc/squid/sleezeball.definitions ] ; then
 	cat /etc/squid/sleezeball.definitions.new >>/etc/squid/sleezeball.definitions
 	rm -f /etc/squid/sleezeball.definitions.new
 else
-	cp %{_defaultdocdir}/sleezeball-%{version}/sleezeball.definitions /etc/squid/sleezeball.definitions
+	cp %{_defaultdocdir}/sleezeball/sleezeball.definitions /etc/squid/sleezeball.definitions
 fi
 
 %clean
