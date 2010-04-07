@@ -52,7 +52,9 @@ EOF
 if ! grep -q "banner" /etc/squid/mime.conf ; then echo 'internal-banner	-	banner.gif	-	image' >>/etc/squid/mime.conf ; fi
 
 if [ -e /etc/squid/sleezeball.definitions ] ; then
-	cp -f /etc/squid/sleezeball.definitions /etc/squid/sleezeball.definitions.old
+	if [ ! -e /etc/squid/sleezeball.definitions.old ] ; then
+		cp -f /etc/squid/sleezeball.definitions /etc/squid/sleezeball.definitions.old
+	fi
 	# Stupid trick to lure RPM into ignoring the result code from grep
 	( grep -vf /etc/squid/sleezeball.definitions %{_defaultdocdir}/sleezeball/sleezeball.definitions >/etc/squid/sleezeball.definitions.new ) | cat
 	cat /etc/squid/sleezeball.definitions.new >>/etc/squid/sleezeball.definitions
