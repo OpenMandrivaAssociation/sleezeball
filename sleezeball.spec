@@ -75,3 +75,55 @@ if [ -d $RPM_BUILD_ROOT ]; then rm -r $RPM_BUILD_ROOT; fi
 %{_libdir}/squid/icons/banner.gif
 %{_sbindir}/reloadszb
 
+
+
+%changelog
+* Tue Dec 07 2010 Oden Eriksson <oeriksson@mandriva.com> 0.6-11mdv2011.0
++ Revision: 614898
+- the mass rebuild of 2010.1 packages
+
+* Wed Apr 07 2010 Thierry Vignaud <tv@mandriva.org> 0.6-10mdv2010.1
++ Revision: 532574
+- fix another accessing doc file in %%post
+  (was broken since rpm-mandriva-setup-1.43)
+- fix %%post regarding installing, removing, installing again
+  (latest of the %%post bugs that were there since years)
+- fix accessing doc file in %%post
+- indent %%post
+
+* Tue Apr 06 2010 Thierry Vignaud <tv@mandriva.org> 0.6-9mdv2010.1
++ Revision: 532248
+- do not blindly generate config file in %%post
+
+* Tue Jun 23 2009 Jérôme Brenier <incubusss@mandriva.org> 0.6-8mdv2010.0
++ Revision: 388119
+- fix license tag
+
+* Sat Aug 02 2008 Thierry Vignaud <tv@mandriva.org> 0.6-7mdv2009.0
++ Revision: 260787
+- rebuild
+
+* Tue Jul 29 2008 Thierry Vignaud <tv@mandriva.org> 0.6-6mdv2009.0
++ Revision: 252575
+- rebuild
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Mon Dec 17 2007 Thierry Vignaud <tv@mandriva.org> 0.6-4mdv2008.1
++ Revision: 127339
+- kill re-definition of %%buildroot on Pixel's request
+- import sleezeball
+
+
+* Tue Dec 27 2005 Lenny Cartier <lenny@mandriva.com> 0.6-4mdk
+- url
+
+* Thu Jun 12 2003 Marcel Pol <mpol@gmx.net> 0.6-3mdk
+- rebuild for rpm 4.2
+
+* Mon Sep 03 2001 Lenny Cartier <lenny@mandrakesoft.com> 0.6-2mdk
+- rebuild
+
+* Tue Nov 21 2000 Florin Grad <florin@mandrakesoft.com> 0.6-1mdk 
+- first attempt
