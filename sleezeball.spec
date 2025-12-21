@@ -13,6 +13,7 @@ URL:  https://fredrik.rambris.com/sleezeball/
 BuildRoot: %{_tmppath}/%{name}-buildroot
 Requires:  squid
 
+BuildRequires:	make
 %description
 SleezeBall is a redirector to be used with the Squid proxy. It tries to guess
 what is a banner and then tells Squid to load a local image instead. This
